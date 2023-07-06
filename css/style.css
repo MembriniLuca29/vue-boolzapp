@@ -107,6 +107,9 @@ color: lightgray;
  border: none;
  background-color: whitesmoke;
  width: calc(100% - 60px);
+ height: 30px;
+ border-radius: 10px;
+ padding-left: 10px;
 }
 
 .search>input:focus-visible{
@@ -200,7 +203,7 @@ width: calc((100% / 10) * 6);
     width: 100%;
     height: calc(100% - 120px);
     background-image:url(../img/mine.jpg);
-    padding: 30px 50px 10px;
+    padding: 30px 70px 10px;
     display: flex;
     flex-direction: column;
 }
@@ -210,10 +213,6 @@ width: calc((100% / 10) * 6);
     margin-top: 20px;
 }
 
-.sent>p , .received>p{
-    width: max-content;
-    min-width: 200px;
-}
 
 
 .sent{
@@ -236,6 +235,21 @@ width: calc((100% / 10) * 6);
     border-radius: 15px;
     padding: 20px;
 }
+
+.sent>p , .received>p{
+    width: max-content;
+    min-width: 200px;
+    position: relative;
+    padding-right: 50px;
+}
+
+.data-message{
+    font-size: 0.6rem;
+    color: grey;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
 /* messaggio */
 
 .message{
@@ -257,6 +271,7 @@ width: calc((100% / 10) * 6);
      background-color: white;
      width: calc(100% - 60px);
      height: 50px;
+     padding-left: 20px;
     }
     
     .message>input:focus-visible{
