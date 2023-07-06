@@ -37,14 +37,14 @@
   <input type="text" placeholder="cerca o inizia una nuova chat">
 </div>
 <div class="users">
-  <div v-for="contact in contacts" :key="contact.name" class="single-user">
+  <div v-for="contact in contacts" :key="contact.name" class="single-user" @click="selectUser(contact)">
     <img :src="contact.avatar" alt="">
     <div class="center-name">
       <p class="name">{{ contact.name }}</p>
-      <p class="grey">ultimo messaggio inviato</p>
+      <p class="grey">{{ getLastMessage(contact) }}</p>
     </div>
     <div class=" last-data">
-    <p class="grey">12:00</p>
+    <p class="grey">{{ getLastMessageTime(contact) }}</p>
   </div>
   </div>
   
@@ -68,13 +68,14 @@
       <i class="fa-solid fa-ellipsis-vertical"></i>
     </div>
   </div>
-  <div class="chat">
-    <div class="sent">
-      <p>hai portato a spasso il cane</p>
-    </div>
-
-    <div class="received">
-      <p>tutto fatto! <span class="data-message">16:15</span></p>
+  <div class="chat" >
+    <div class="chat">
+      <div v-if="selectedUser">
+        <div v-for="message in selectedUser.messages" :key="message.date" :class="[message.status === 'sent' ? 'sent' : 'received']">
+          <p>{{ message.message }} <span class="data-message">16:15</span></p>
+        </div>
+      </div>
+    
     </div>
   </div>
  
