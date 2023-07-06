@@ -10,12 +10,12 @@ createApp({
             messages: [
             {
             date: '10/01/2020 15:30:55',
-            message: 'Hai portato a spasso il cane?',
+            message: 'Hai fatto',
             status: 'sent'
             },
             {
             date: '10/01/2020 15:50:00',
-            message: 'Ricordati di stendere i panni',
+            message: 'hai vomitato sudore e lacrime',
             status: 'sent'
             },
             {
@@ -120,7 +120,7 @@ createApp({
             },
             {
             date: '10/01/2020 15:51:00',
-            message: 'Nessuna nuova, buona nuova',
+            message: 'io credevo in te',
             status: 'sent'
             }
             ],
@@ -166,6 +166,12 @@ createApp({
             }
             ],
             selectedUser: null,
+            newMessage: '' 
+    }
+  },
+  created() {
+    if (this.contacts.length > 0) {
+      this.selectedUser = this.contacts[0];
     }
   },
   methods: {
@@ -182,7 +188,29 @@ createApp({
     },
     sendMessage(message) {
       this.selectedUser.messages.push(message);
-    }
+    },
+    sendMessage() {
+      if (this.selectedUser && this.newMessage.trim() !== '') {
+        const newMessageObj = {
+          date: new Date().toLocaleString(), // Aggiungi la data corrente al messaggio
+          message: this.newMessage,
+          status: 'sent'
+        };
+  
+        this.selectedUser.messages.push(newMessageObj);
+        this.newMessage = ''; // Pulisci il campo di input del messaggio
+  
+        setTimeout(() => {
+          const autoReplyMessage = {
+            date: new Date().toLocaleString(),
+            message: 'Ok!',
+            status: 'received'
+          };
+  
+          this.selectedUser.messages.push(autoReplyMessage);
+        }, 1000);
+      }
+    },
   }
 }).mount('#app');
 

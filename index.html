@@ -72,7 +72,7 @@
     <div class="chat">
       <div v-if="selectedUser">
         <div v-for="message in selectedUser.messages" :key="message.date" :class="[message.status === 'sent' ? 'sent' : 'received']">
-          <p>{{ message.message }} <span class="data-message">16:15</span></p>
+          <p>{{ message.message }} <span class="data-message">{{ message.date }}</span></p>
         </div>
       </div>
     
@@ -81,7 +81,7 @@
  
     <div class="message">
       <i class="fa-regular fa-face-smile"></i>
-      <input type="text" placeholder="scrivi un messaggio">
+      <input type="text" placeholder="scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
       <i class="fa-solid fa-microphone"></i>
     </div>
  
