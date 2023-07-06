@@ -166,7 +166,13 @@ createApp({
             }
             ],
             selectedUser: null,
-            newMessage: '' 
+            newMessage: '' ,
+            searchText: ''
+    }
+  },
+  computed: {
+    filteredContacts() {
+      return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchText.toLowerCase()));
     }
   },
   created() {
@@ -211,6 +217,7 @@ createApp({
         }, 1000);
       }
     },
+    
   }
 }).mount('#app');
 
