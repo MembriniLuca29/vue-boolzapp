@@ -117,6 +117,7 @@ color: lightgray;
 
 .users{
     width: 100%;
+    overflow-y: auto;
 }
 
 .single-user{
@@ -132,6 +133,7 @@ color: lightgray;
     height: 70px;
     max-width: calc((100% /10) * 2);
     min-width:65px;
+    margin: 20px 0;
 }
 
 .name{
@@ -159,5 +161,104 @@ width: calc((100% / 10) * 6);
     width: 65%;
 }
 
+/* dati utente chat */
+
+.now-chat-user{
+    max-height: 10%;
+    padding-left: 10px;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 10%
+}
+
+.chat-icon{
+    font-size: 1.5rem;
+    color: lightgray;
+    padding: 0 10px;
+}
+
+.pseudogrey{
+    color: grey;
+}
+
+.chat-info{
+    display: flex;
+    align-items: center;
+}
+
+.chat-info>img{
+    border-radius: 50%;
+    max-height: 50px;
+    padding: 5px 5px 5px 0;
+}
+
+/* chat */
+
+.chat{
+    width: 100%;
+    height: calc(100% - 120px);
+    background-image:url(../img/mine.jpg);
+    padding: 30px 50px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat>div{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.sent>p , .received>p{
+    width: max-content;
+    min-width: 200px;
+}
 
 
+.sent{
+    display: flex;
+    justify-content: end;
+    
+}
+.sent>p{
+    background-color: #D5F9BA;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.received{
+    display:flex ;
+    justify-content: start;
+}
+.received>p{
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+}
+/* messaggio */
+
+.message{
+    width: 100%;
+    height: 9%;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+}
+
+.message>i{
+    padding: 10px 20px;
+    color: gray;
+    font-size: 1.5rem;
+    }
+    
+    .message>input{
+     border: none;
+     background-color: white;
+     width: calc(100% - 60px);
+     height: 50px;
+    }
+    
+    .message>input:focus-visible{
+        outline: none;
+    }
