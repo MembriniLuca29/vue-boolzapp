@@ -164,7 +164,26 @@ createApp({
             }
             ],
             }
-            ]
+            ],
+            selectedUser: null,
     }
   },
+  methods: {
+    getLastMessage(contact) {
+      const lastMessage = contact.messages[contact.messages.length - 1];
+      return lastMessage ? lastMessage.message : '';
+    },
+    getLastMessageTime(contact) {
+      const lastMessage = contact.messages[contact.messages.length - 1];
+      return lastMessage ? lastMessage.date : '';
+    },
+    selectUser(user) {
+      this.selectedUser = user;
+    },
+    sendMessage(message) {
+      this.selectedUser.messages.push(message);
+    }
+  }
 }).mount('#app');
+
+
