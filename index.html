@@ -37,10 +37,10 @@
   <input type="text" placeholder="cerca o inizia una nuova chat">
 </div>
 <div class="users">
-  <div class="single-user">
-    <img src="img/avatar_1.jpg" alt="">
+  <div v-for="contact in contacts" :key="contact.name" class="single-user">
+    <img :src="contact.avatar" alt="">
     <div class="center-name">
-      <p class="name">Michele</p>
+      <p class="name">{{ contact.name }}</p>
       <p class="grey">ultimo messaggio inviato</p>
     </div>
     <div class=" last-data">
@@ -70,7 +70,7 @@
   </div>
   <div class="chat">
     <div class="sent">
-      <p>hai portato a spasso il cane <span class="data-message">16:15</span></p>
+      <p>hai portato a spasso il cane</p>
     </div>
 
     <div class="received">
