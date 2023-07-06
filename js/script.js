@@ -170,11 +170,7 @@ createApp({
             searchText: ''
     }
   },
-  computed: {
-    filteredContacts() {
-      return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchText.toLowerCase()));
-    }
-  },
+  
   created() {
     if (this.contacts.length > 0) {
       this.selectedUser = this.contacts[0];
