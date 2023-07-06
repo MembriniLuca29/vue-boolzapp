@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title> Boolzapp con Vue</title>
 </head>
 <body>
@@ -12,7 +13,48 @@
   <div class="top-bar"></div>
 
   <div id="app">
+ <!-- barra laterale -->
+<div class="left">
+  <div class="user">
+    <div class="myinfo"><img src="./img/avatar_io.jpg" alt="">
+    <p>Sofia</p></div>
+  
+  <div class="my-icon">
+    <i class="fa-solid fa-circle-notch"></i>
+    <i class="fa-solid fa-message"></i>
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+  </div>
+</div>
+<div class="notify">
+  <i class="fa-solid fa-bell-slash"></i>
+  <div>
+  <p class="font">Ricevi notifiche di nuovi messaggi</p>
+  <p class="activate-notify">Attiva notifiche desktop</p>
+</div>
+</div>
+<div class="search">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="text">
+</div>
+<div class="users">
+  <div class="single-user">
+    <img src="img/avatar_1.jpg" alt="">
+    <div class="center-name">
+      <p class="name">Michele</p>
+      <p class="grey">ultimo messaggio inviato</p>
+    </div>
+    <div class=" last-data">
+    <p class="grey">12:00</p>
+  </div>
+  </div>
+</div>
 
+</div>
+
+<!-- corpo messaggio -->
+<div class="main">
+
+</div>
   </div>
 
 </div>

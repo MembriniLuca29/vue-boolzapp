@@ -16,13 +16,13 @@
 /* background */
 .background{
 width: 100%;
-background-color: antiquewhite;
+background-color: #D9DBD4;
 }
 
 .top-bar{
 width: 100%;
 height: 150px;
-background-color: rgb(76, 163, 112);
+background-color: #009688;
 }
 
 /* contenitore */
@@ -34,6 +34,130 @@ background-color: rgb(76, 163, 112);
     z-index: 1;
     margin: 0 auto;
     top: -90px;
+    display: flex;
 }
+
+/* barra laterale -----------------------------------------------------------------------*/
+.left{
+    width: 35%;
+}
+
+/* utente*/
+.user{
+    max-height: 10%;
+    padding-left: 10px;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-right: 1px solid lightgray;
+}
+.myinfo{
+    display: flex;
+    align-items: center;
+}
+.myinfo>img{
+    border-radius: 50%;
+    max-height: 50px;
+    padding: 5px 5px 5px 0;
+}
+.my-icon>i{
+    font-size: 1.5rem;
+    color: lightgray;
+    padding: 0 10px;
+}
+/* messaggio informativo */
+.notify{
+    background-color: #8EDAFC;
+    max-height: 10%;
+    display: flex;
+    align-items: center;
+}
+.fa-bell-slash{
+    border-radius: 80%;
+    background-color: white;
+    padding: 12px;
+    margin: 10px 5px 10px 10px;
+    font-size: 1.5rem;
+    color: #8EDAFC;
+}
+
+.font{
+    font-size: 0.9rem;
+}
+.activate-notify{
+    text-decoration: underline;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+/* barra ricerca utente */
+.search{
+    width: 100%;
+    height: 6%;
+}
+
+.search>i{
+padding: 10px 20px;
+color: lightgray;
+}
+
+.search>input{
+ border: none;
+ background-color: whitesmoke;
+ width: calc(100% - 60px);
+}
+
+.search>input:focus-visible{
+    outline: none;
+}
+
+/* users */
+
+.users{
+    width: 100%;
+}
+
+.single-user{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    padding: 10px 10px;
+    align-items: center;
+}
+
+.single-user>img{
+    border-radius: 50%;
+    height: 70px;
+    max-width: calc((100% /10) * 2);
+    min-width:65px;
+}
+
+.name{
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 4px;
+}
+
+.center-name{
+width: calc((100% / 10) * 6);
+}
+
+.grey{
+    opacity: 0.5;
+    font-size: 0.7rem;
+}
+
+.last-data{
+    text-align: end;
+    width: calc((100% / 10) * 2)
+}
+
+/* corpo messaggio ---------------------------------------------------------------------------------------------------- */
+.main{
+    width: 65%;
+}
+
 
 
