@@ -216,13 +216,12 @@ width: calc((100% / 10) * 6);
 }
 
 
-.sent,.received{
-    margin: 10px 10px
-}
+
 
 .sent{
     display: flex;
     justify-content: end;
+    
     
 }
 .sent>p{
@@ -230,6 +229,8 @@ width: calc((100% / 10) * 6);
     border-radius: 15px;
     padding: 20px;
 }
+
+
 
 .received{
     display:flex ;
@@ -248,6 +249,14 @@ width: calc((100% / 10) * 6);
     padding-right: 50px;
 }
 
+.sent,.received{
+    margin: 10px 10px;
+    flex-wrap: wrap;
+}
+
+.sent>p>* , .received>p>*{
+    max-width: 800px;
+}
 .data-message{
     font-size: 0.6rem;
     color: grey;
