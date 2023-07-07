@@ -31,17 +31,17 @@ createApp({
             visible: true,
             messages: [
             {
-            date: '20/03/2020 16:30:00',
+            date: '10/01/2020 16:30:00',
             message: 'Ciao come stai?',
             status: 'sent'
             },
             {
-            date: '20/03/2020 16:30:55',
+            date: '10/01/2020 16:30:55',
             message: 'Bene grazie! Stasera ci vediamo?',
             status: 'received'
             },
             {
-            date: '20/03/2020 16:35:00',
+            date: '10/01/2020 16:35:00',
             message: 'Mi piacerebbe ma devo andare a fare la spesa.',
             status: 'sent'
             }
@@ -53,17 +53,17 @@ createApp({
             visible: true,
             messages: [
             {
-            date: '28/03/2020 10:10:40',
+            date: '10/01/2020 10:10:40',
             message: 'La Marianna va in campagna',
             status: 'received'
             },
             {
-            date: '28/03/2020 10:20:10',
+            date: '10/01/2020 10:20:10',
             message: 'Sicuro di non aver sbagliato chat?',
             status: 'sent'
             },
             {
-            date: '28/03/2020 16:15:22',
+            date: '10/01/2020 16:15:22',
             message: 'Ah scusa!',
             status: 'received'
             }
@@ -167,23 +167,37 @@ createApp({
             ],
             selectedUser: null,
             newMessage: '' ,
-            searchText: ''
+            searchText: '' ,
+            filteredContacts: [] 
     }
   },
   
   created() {
     if (this.contacts.length > 0) {
       this.selectedUser = this.contacts[0];
+      this.filteredContacts = this.contacts;
     }
   },
   methods: {
+    formatTime(dateTime) {
+      const time = new Date(dateTime);
+      const hour = time.getHours();
+      const minute = time.getMinutes();
+      return `${hour}:${minute}`;
+    },
     getLastMessage(contact) {
       const lastMessage = contact.messages[contact.messages.length - 1];
       return lastMessage ? lastMessage.message : '';
     },
     getLastMessageTime(contact) {
       const lastMessage = contact.messages[contact.messages.length - 1];
-      return lastMessage ? lastMessage.date : '';
+      if (lastMessage) {
+        const dateTime = new Date(lastMessage.date);
+        const hour = dateTime.getHours().toString().padStart(2, '0');
+        const minute = dateTime.getMinutes().toString().padStart(2, '0');
+        return `${hour}:${minute}`;
+      }
+      return '';
     },
     selectUser(user) {
       this.selectedUser = user;
@@ -192,15 +206,15 @@ createApp({
       this.selectedUser.messages.push(message);
     },
     sendMessage() {
-      if (this.selectedUser && this.newMessage.trim() !== '') {
+      if (this.selectedUser && this.newMessage.trim() != '') {
         const newMessageObj = {
-          date: new Date().toLocaleString(), // Aggiungi la data corrente al messaggio
+          date: new Date().toLocaleString(), 
           message: this.newMessage,
           status: 'sent'
         };
   
         this.selectedUser.messages.push(newMessageObj);
-        this.newMessage = ''; // Pulisci il campo di input del messaggio
+        this.newMessage = '';
   
         setTimeout(() => {
           const autoReplyMessage = {
@@ -213,8 +227,23 @@ createApp({
         }, 1000);
       }
     },
+    filterContacts(searchText) {
+      if (searchText.trim() == '') {
+        this.filteredContacts = this.contacts;
+      } else {
+        this.filteredContacts = this.contacts.filter(contact =>
+          contact.name.toLowerCase().includes(searchText.toLowerCase())
+        );
+      }
+    }
+  },
+  watch: {
+    searchText(value) {
+      this.filterContacts(value);
+    }
+  }
     
   }
-}).mount('#app');
+).mount('#app');
 
 
